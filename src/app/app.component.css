@@ -10,7 +10,8 @@
 .nav-wrapper {
   top: 0px;
   left: 0px;
-  height: 134px;
+  /*height: 134px;*/
+
   border: 1px solid #707070;
   background: #157125 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
