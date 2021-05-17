@@ -4,13 +4,13 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a routerLink="/teams">Teams</a></li>
 
-      <span *ngIf="true">
+      <span *ngIf="!this.currentUser">
         <li><a routerLink="/signup">Sign Up</a></li>
         <li><a routerLink="/login">Log In</a></li>
       </span>
-      <span *ngIf="true">
+      <span *ngIf="this.currentUser">
         <li><a routerLink="/logout">Log Out</a></li>
-        <li>Hello,</li>
+        <li>Hello, Coach {{this.currentUser.email}}</li>
       </span>
     </ul>
   </div>
