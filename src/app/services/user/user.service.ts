@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
@@ -45,6 +45,17 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
+  createMember(newMember): any {
+    console.log(newMember);
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http
+      .post(`${backEndUrl}/api/teams/members/`, newMember, requestOptions);
+  }
 
 
 }
