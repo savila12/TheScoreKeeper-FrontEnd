@@ -9,8 +9,10 @@
         <li><a routerLink="/login">Log In</a></li>
       </span>
       <span *ngIf="this.currentUser">
+        <li><a routerLink="/coach"> Coach </a></li>
         <li><a routerLink="/logout">Log Out</a></li>
         <li>Hello, Coach {{this.currentUser.email}}</li>
+
       </span>
     </ul>
   </div>
