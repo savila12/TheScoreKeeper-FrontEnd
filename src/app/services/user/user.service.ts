@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 const backEndUrl = 'http://localhost:9092';
 
@@ -9,7 +11,10 @@ const backEndUrl = 'http://localhost:9092';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {
+  currentUser: string;
+  searchSubject = new Subject();
+
+  constructor(private http: HttpClient, private router: Router) {
     console.log('user service loaded');
   }
 
@@ -29,6 +34,13 @@ export class UserService {
         localStorage.setItem('token', `${token}`);
         console.log(response, token);
       }, err => console.log(err));
+  }
+
+  logoutUser(): void {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
+    this.currentUser = '';
+    this.router.navigate(['/login']);
   }
 
 
