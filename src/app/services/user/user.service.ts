@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
@@ -16,11 +16,25 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  // @ts-ignore
   registerUser(newUser): any {
     console.log(newUser);
     return this.http
-      .post(`${backEndUrl}/auth/users/register`, newUser)
+      .post(`${backEndUrl}/auth/users/register`, newUser);
   }
+
+  registerTeam(newTeam): any{
+    console.log(newTeam);
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http
+      .post(`${backEndUrl}/api/teams`, newTeam, requestOptions);
+  }
+
 
   loginUser(user): void {
     console.log(user);
@@ -45,6 +59,17 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
+  createMember(newMember): any {
+    console.log(newMember);
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http
+      .post(`${backEndUrl}/api/teams/members/`, newMember, requestOptions);
+  }
 
 
 }

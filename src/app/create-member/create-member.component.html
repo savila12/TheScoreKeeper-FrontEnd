@@ -1,6 +1,24 @@
-<h4>Create New Category</h4>
-<form (submit)="createMember()">
-  <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First Name" />
-  <input [(ngModel)]="lastName" name="LastName" type="text" placeholder="Last Name" />
-  <input type="submit"/>
-</form>
+<h4>Create A New Member</h4>
+
+  <form  (submit)="createMember()">
+    <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First Name" />
+    <input [(ngModel)]="lastName" name="LastName" type="text" placeholder="Last Name" />
+    <input [(ngModel)]="emailAddress" name="emailAddress" type="text" placeholder="Email" />
+    <input [(ngModel)]="address" name="address" type="text" placeholder="Home Address" />
+    <input [(ngModel)]="phoneNumber" name="phoneNumber" type="text" placeholder="Phone Number" />
+    <div class="input-field col s12">
+      <select (change)="selectRoleType($event)">
+        <option value="" disabled selected>Choose member's role</option>
+        <option value="player">Player</option>
+        <option value="staff">Staff</option>
+      </select>
+      <div *ngIf="this.role === 'player'">
+        <input [(ngModel)]="position" name="position" type="text" placeholder="Position">
+        <input [(ngModel)]="playerNumber" name="playerNumber" type="text" placeholder="Jersey Number" />
+        <input [(ngModel)]="battingOrder" name="battingOrder" type="text" placeholder="Batting Order" />
+      </div>
+    </div>
+    <input type="submit" />
+  </form>
+
+

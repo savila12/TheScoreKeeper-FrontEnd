@@ -14,12 +14,34 @@ export class SignupComponent implements OnInit {
   public lastName: string;
   public emailAddress: string;
   public password: string;
+  public teamName: string;
+  public cityName: string;
+  public parkName: string;
 
   registerUser(): void {
-    const newUser = {userName: this.userName, emailAddress: this.emailAddress,
-                     password: this.password, firstName: this.firstName, lastName: this.lastName};
+    const newUser = {
+      userName: this.userName,
+      emailAddress: this.emailAddress,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName};
     this.userService.registerUser(newUser)
-      .subscribe(response => console.log(response),err => console.log(err));
+      .subscribe(response => console.log(response), err => console.log(err));
+  }
+
+  registerTeam(): void{
+    const newTeam = {
+      teamName: this.teamName,
+      parkName: this.parkName,
+      city: this.cityName
+    };
+    this.userService.registerTeam(newTeam)
+      .subscribe(response => console.log(response), err => console.log(err));
+  }
+
+  registerUserAndTeam(): void {
+    this.registerUser();
+    this.registerTeam();
   }
 
 
