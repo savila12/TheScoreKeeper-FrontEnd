@@ -16,13 +16,18 @@ export class CoachComponent implements OnInit {
   constructor(private http: HttpClient, private userService: UserService) {
   }
 
-  getAllMembers(): void {
+  // getAllMembers(): void {
+  //   this.userService.getAllMembers().subscribe(response => {
+  //     this.members = response;
+  //   });
+  // }
+
+  showAll(): void{
     this.userService.getAllMembers().subscribe(response => {
       this.members = response;
-      this.players = this.members.filter(player => player.role === 'player');
-      console.log(this.players);
     });
   }
+
 
   showPlayer(): void{
     this.userService.getAllMembers().subscribe(response => {
@@ -43,6 +48,6 @@ export class CoachComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllMembers();
+    this.showAll();
   }
 }

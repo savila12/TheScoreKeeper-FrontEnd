@@ -84,4 +84,15 @@ export class UserService {
   }
 
 
+  deleteMember(id: any): any {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    this.router.navigate(['/coach']);
+    return this.http
+      .delete(`${backEndUrl}/api/teams/members/${id}`, requestOptions);
+  }
 }
