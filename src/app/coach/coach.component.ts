@@ -19,19 +19,25 @@ export class CoachComponent implements OnInit {
   getAllMembers(): void {
     this.userService.getAllMembers().subscribe(response => {
       this.members = response;
-      this.players = this.members.filter(player => this.members.role === 'player');
-      this.staff = this.members.filter(staff => this.members.role === 'staff');
+      this.players = this.members.filter(player => player.role === 'player');
+      console.log(this.players);
     });
   }
 
   showPlayer(): void{
-    console.log('coach.component');
-    console.log('player');
+    this.userService.getAllMembers().subscribe(response => {
+      this.members = response;
+      this.players = this.members.filter(player => player.role === 'player');
+      console.log(this.players);
+    });
   }
 
   showStaff(): void{
-    console.log('coach.component');
-    console.log('staff');
+    this.userService.getAllMembers().subscribe(response => {
+      this.members = response;
+      this.staff = this.members.filter(player => player.role === 'staff');
+      console.log(this.staff);
+    });
   }
 
 
