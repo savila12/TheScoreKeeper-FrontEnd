@@ -24,6 +24,18 @@ export class CoachComponent implements OnInit {
     });
   }
 
+  showPlayer(): void{
+    console.log('coach.component');
+    console.log('player');
+  }
+
+  showStaff(): void{
+    console.log('coach.component');
+    console.log('staff');
+  }
+
+
+
   ngOnInit(): void {
     this.getAllMembers();
   }

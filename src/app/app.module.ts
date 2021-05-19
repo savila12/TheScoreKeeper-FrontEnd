@@ -15,6 +15,7 @@ import { CreateMemberComponent } from './create-member/create-member.component';
 import { TeamCreationComponent } from './team-creation/team-creation.component';
 import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './member/member.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MemberComponent } from './member/member.component';
     CreateMemberComponent,
     TeamCreationComponent,
     MembersComponent,
-    MemberComponent
+    MemberComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

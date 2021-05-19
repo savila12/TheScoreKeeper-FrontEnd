@@ -6,6 +6,9 @@
     <div class="buttons-list">
       <button routerLink="/createMember"> Add Team Member </button>
       <button routerLink="/createTeam"> Create A Team </button>
+      <app-button (btnEmit)="showPlayer()" text="Player"></app-button>
+      <app-button (btnEmit)="showStaff()" text="Staff"></app-button>
+
     </div>
 
 
