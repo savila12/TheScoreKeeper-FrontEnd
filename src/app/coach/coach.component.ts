@@ -27,7 +27,7 @@ export class CoachComponent implements OnInit {
   showPlayer(): void{
     this.userService.getAllMembers().subscribe(response => {
       this.members = response;
-      this.players = this.members.filter(player => player.role === 'player');
+      this.members = this.members.filter(player => player.role === 'player');
       console.log(this.players);
     });
   }
@@ -35,7 +35,7 @@ export class CoachComponent implements OnInit {
   showStaff(): void{
     this.userService.getAllMembers().subscribe(response => {
       this.members = response;
-      this.staff = this.members.filter(player => player.role === 'staff');
+      this.members = this.members.filter(player => player.role === 'staff');
       console.log(this.staff);
     });
   }
