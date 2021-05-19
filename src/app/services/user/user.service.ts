@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 
 const backEndUrl = 'http://localhost:9092';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +12,7 @@ export class UserService {
 
   currentUser: string;
   searchSubject = new Subject();
+  member: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -69,6 +69,18 @@ export class UserService {
     };
     return this.http
       .post(`${backEndUrl}/api/teams/members/`, newMember, requestOptions);
+  }
+
+  getAllMembers(): any {
+    console.log('in "getAllMembers()" user service');
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http
+      .get(`${backEndUrl}/api/teams/members/`, requestOptions);
   }
 
 

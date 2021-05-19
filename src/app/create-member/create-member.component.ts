@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
+
 declare const M;
 
 @Component({
@@ -54,5 +55,7 @@ export class CreateMemberComponent implements OnInit {
       const instances = M.FormSelect.init(elems, this.options);
     });
   }
+
+
 
 }

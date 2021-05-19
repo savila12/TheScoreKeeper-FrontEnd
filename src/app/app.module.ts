@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CoachComponent } from './coach/coach.component';
 import { CreateMemberComponent } from './create-member/create-member.component';
+import { TeamCreationComponent } from './team-creation/team-creation.component';
+import { MembersComponent } from './members/members.component';
+import { MemberComponent } from './member/member.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CreateMemberComponent } from './create-member/create-member.component';
     HomeComponent,
     LogoutComponent,
     CoachComponent,
-    CreateMemberComponent
+    CreateMemberComponent,
+    TeamCreationComponent,
+    MembersComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,
