@@ -12,7 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CoachComponent } from './coach/coach.component';
 import { CreateMemberComponent } from './create-member/create-member.component';
+import { TeamCreationComponent } from './team-creation/team-creation.component';
+import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './member/member.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MemberComponent } from './member/member.component';
     LogoutComponent,
     CoachComponent,
     CreateMemberComponent,
-    MemberComponent
+    TeamCreationComponent,
+    MembersComponent,
+    MemberComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

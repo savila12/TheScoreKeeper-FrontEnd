@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
+
 declare const M;
 
 @Component({
@@ -9,10 +10,8 @@ declare const M;
 })
 export class CreateMemberComponent implements OnInit {
 
-
-  constructor(private userService: UserService) { }
-  public members: any[];
-  public firstName: string;
+  public members: any [] = [];
+  public firstName: any;
   public lastName: string;
   public emailAddress: string;
   public address: string;
@@ -23,8 +22,10 @@ export class CreateMemberComponent implements OnInit {
   public battingOrder: number;
   public phoneNumber: string;
 
+  constructor(private userService: UserService) { }
+
   createMember(): void {
-    console.log('I\'m working');
+    console.log(this.members, "I am working");
     const newMember = {
       firstName: this.firstName,
       lastName: this.lastName,
@@ -38,6 +39,7 @@ export class CreateMemberComponent implements OnInit {
 
     this.userService.createMember(newMember).subscribe(response => {
       this.members = [...this.members, response];
+      console.log(this.members, response);
     }, err => console.log(err));
   }
 
@@ -54,5 +56,7 @@ export class CreateMemberComponent implements OnInit {
       const instances = M.FormSelect.init(elems, this.options);
     });
   }
+
+
 
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../services/user/user.service';
 import {HttpClient} from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import {UserService} from '../services/user/user.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-coach',
@@ -10,13 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CoachComponent implements OnInit {
 
-  public members: any[];
+  public members: any;
   public member: any;
   public players: any;
   public staff: any;
 
-  constructor(private http: HttpClient, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private userService: UserService, private route: ActivatedRoute) {
+  }
 
+  // getAllMembers(): void {
+  //   this.userService.getAllMembers().subscribe(response => {
+  //     this.members = response;
+  //   });
+  // }
+
+  showAll(): void{
+    this.userService.getAllMembers().subscribe(response => {
+      this.members = response;
+    });
+  }
 
   getAllMembers(): void {
     this.userService.getAllMembers().subscribe(response => {
@@ -30,22 +42,26 @@ export class CoachComponent implements OnInit {
     });
   }
 
-  deleteMember(member): any {
-    // @ts-ignore
-    const index = this.members.indexOf(member);
-    console.log(index);
-    this.userService.deleteMember(member).subscribe(() => {
-      // @ts-ignore
-      this.members.splice(index, 1);
+  showPlayer(): void{
+    this.userService.getAllMembers().subscribe(response => {
+      this.members = response;
+      this.members = this.members.filter(player => player.role === 'player');
+      console.log(this.players);
     });
   }
 
-  // filterMembers(role) {
-  //   x.d
-  // }
+  showStaff(): void{
+    this.userService.getAllMembers().subscribe(response => {
+      this.members = response;
+      this.members = this.members.filter(player => player.role === 'staff');
+      console.log(this.staff);
+    });
+  }
+
+
 
   ngOnInit(): void {
-    this.getAllMembers();
+    this.showAll();
   }
 }
 

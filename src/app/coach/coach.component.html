@@ -1,16 +1,30 @@
-<div class="main-container">
-  <div>
-    <button>Players</button>
-    <button>Staff</button>
-  </div>
-  <div class="left-container">
-    <a class="btn-floating btn-large waves-effect waves-light red" routerLink="/createMember"><i class="material-icons">+</i></a>
-    <div class="memberList" *ngFor="let member of members">
-        <p><a routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
+<div class="div0">
+
+  <div class="div1">
+
+    <div class="buttons-list">
+      <button routerLink="/createMember"> Add Team Member </button>
+      <button routerLink="/createTeam"> Create A Team </button>
+      <app-button (btnEmit)="showPlayer()" text="Player"></app-button>
+      <app-button (btnEmit)="showStaff()" text="Staff"></app-button>
+      <app-button (btnEmit)="showAll()" text="All Members"></app-button>
+
     </div>
+
+
+    <div class="left-container">
+      <a class="btn-floating btn-large waves-effect waves-light red" routerLink="/createMember"><i class="material-icons">+</i></a>
+      <div *ngFor="let member of members">
+        <div >
+          <p><a routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="right-container">
+
+  <div class="div2">
     <router-outlet></router-outlet>
   </div>
 </div>

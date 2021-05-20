@@ -1,0 +1,13 @@
+
+<h4>Members List</h4>
+
+<div *ngIf="members">
+
+  <ul>
+    <li *ngFor="let member of members">
+      <a routerLink="/coach/{{member.id}}">{{member.firstName}} -- {{member.lastName}} -- {{member.role}}</a>
+    </li>
+  </ul>
+</div>
+
+

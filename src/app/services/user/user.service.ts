@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 
 const backEndUrl = 'http://localhost:9092';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +12,7 @@ export class UserService {
 
   currentUser: string;
   searchSubject = new Subject();
+  member: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -71,17 +71,21 @@ export class UserService {
       .post(`${backEndUrl}/api/teams/members`, newMember, requestOptions);
   }
 
-  getAllMembers(): any{
+  getAllMembers(): any {
+    console.log('in "getAllMembers()" user service');
+
     const token = localStorage.getItem('token');
     const requestOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.get(`${backEndUrl}/api/teams/members/`, requestOptions);
+    return this.http
+      .get(`${backEndUrl}/api/teams/members/`, requestOptions);
   }
 
-  deleteMember(member: any): any {
+
+  deleteMember(id: any): any {
     const token = localStorage.getItem('token');
     const requestOptions = {
       headers: new HttpHeaders({
@@ -90,7 +94,6 @@ export class UserService {
     };
     this.router.navigate(['/coach']);
     return this.http
-      .delete(`${backEndUrl}/api/teams/members/${member.id}`, requestOptions);
+      .delete(`${backEndUrl}/api/teams/members/${id}`, requestOptions);
   }
-
 }

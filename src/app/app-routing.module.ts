@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CoachComponent } from './coach/coach.component';
 import { CreateMemberComponent } from './create-member/create-member.component';
+import { TeamCreationComponent } from './team-creation/team-creation.component';
 import {MemberComponent} from './member/member.component';
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'createMember',
     component: CreateMemberComponent
+  },
+  {
+    path: 'createTeam',
+    component: TeamCreationComponent
   }
 
 ];

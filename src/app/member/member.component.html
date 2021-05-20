@@ -6,8 +6,8 @@
         <p>{{member.phoneNumber}}</p>
         <p>{{member.email}}</p>
         <p>{{member.address}}</p>
-        <button class="waves-effect waves-light btn" (click)="deleteMember(member)">Remove {{member.role}}</button>
       </div>
+      <app-button text="delete" (btnEmit)="deleteMemberById()"></app-button>
     </div>
   </div>
 </div>

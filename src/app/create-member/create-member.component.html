@@ -1,6 +1,8 @@
 <h4>Create A New Member</h4>
 
-  <form  (submit)="createMember()">
+<div>
+
+  <form id="new-member-form"  (submit)="createMember()">
     <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First Name" />
     <input [(ngModel)]="lastName" name="LastName" type="text" placeholder="Last Name" />
     <input [(ngModel)]="emailAddress" name="emailAddress" type="text" placeholder="Email" />
@@ -21,4 +23,6 @@
     <input type="submit" routerLink="/coach"/>
   </form>
 
+
+</div>
 
