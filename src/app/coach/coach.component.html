@@ -1,10 +1,16 @@
-<p>coach works!</p>
-
-<div class="div0">
-  <div class="div1">
-    <button> <a routerLink="/createMember">Add Team Member</a></button>
+<div class="main-container">
+  <div>
+    <button>Players</button>
+    <button>Staff</button>
   </div>
+  <div class="left-container">
+    <a class="btn-floating btn-large waves-effect waves-light red" routerLink="/createMember"><i class="material-icons">+</i></a>
+    <div class="memberList" *ngFor="let member of members">
+        <p><a routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
+    </div>
+  </div>
+
+  <div class="right-container">
     <router-outlet></router-outlet>
-  <div class="div2">
   </div>
 </div>

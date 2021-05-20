@@ -68,8 +68,29 @@ export class UserService {
       }),
     };
     return this.http
-      .post(`${backEndUrl}/api/teams/members/`, newMember, requestOptions);
+      .post(`${backEndUrl}/api/teams/members`, newMember, requestOptions);
   }
 
+  getAllMembers(): any{
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http.get(`${backEndUrl}/api/teams/members/`, requestOptions);
+  }
+
+  deleteMember(member: any): any {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    this.router.navigate(['/coach']);
+    return this.http
+      .delete(`${backEndUrl}/api/teams/members/${member.id}`, requestOptions);
+  }
 
 }
