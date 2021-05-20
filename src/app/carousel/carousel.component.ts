@@ -17,7 +17,7 @@ export class CarouselComponent implements OnInit {
       $('.carousel').carousel(
         {
           fullWidth: true,
-          indicators: true,
+          indicators: false,
         });
 
 
@@ -31,5 +31,4 @@ export class CarouselComponent implements OnInit {
 
     });
   }
-
 }

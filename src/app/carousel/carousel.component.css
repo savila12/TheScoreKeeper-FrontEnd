@@ -9,3 +9,63 @@
   margin: auto;
 
 }
+
+h2{
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  padding-left: 19px;
+}
+
+#first-image{
+  background-image: url("../../assets/images/Garfield Field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  padding-top: 0;
+  background-size: cover;
+
+}
+
+#second-image{
+  background-image: url("../../assets/images/Livingston Field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  padding-top: 0;
+  background-size: cover;
+
+}
+
+#third-image{
+  background-image: url("../../assets/images/McKinley Field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  padding-top: 0;
+  background-size: cover;
+
+}
+
+#fourth-image{
+  background-image: url("../../assets/images/Ping Tom Field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  padding-top: 0;
+  background-size: cover;
+
+}
+
+#fifth-image{
+  background-image: url("../../assets/images/Sheridan Field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  padding-top: 0;
+  background-size: cover;
+
+}
+
+
+
