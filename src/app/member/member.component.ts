@@ -51,7 +51,7 @@ export class MemberComponent implements OnInit {
       this.members.splice(this.indexOfMember, 1);
     }, err => console.log(err));
     // this.router.navigate(['/coach']);
-    // this.reloadComponent();
+    this.reloadComponent();
     this.getAllMembers();
   }
 
@@ -63,9 +63,6 @@ export class MemberComponent implements OnInit {
   }
 
 
-  ngOnChange(): void{
-    this.getAllMembers();
-  }
   ngOnInit(): void {
     this.getAllMembers();
   }

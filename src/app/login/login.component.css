@@ -1,0 +1,70 @@
+.login-container{
+  position: relative;
+  top: 35px;
+  width: 35vw;
+  height: 60vh;
+  border: 1px solid black;
+  background: #157125 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  opacity: 1;
+  text-align: center;
+}
+
+h2{
+  color: white;
+}
+
+input{
+  text-align: center;
+  width: 15vw;
+}
+
+.outer-email-container{
+  position: relative;
+  left: 15%;
+  width: 25vw;
+  border: solid black;
+  border-radius: 25px;
+  background: #C98115;
+
+}
+
+.email-container{
+  position: relative;
+  left: 5vh;
+  width: 20vw;
+  /*border: solid black;*/
+  /*border-radius: 25px;*/
+  text-align: center;
+}
+
+.outer-password-container{
+  position: relative;
+  top: 20px;
+  left: 15%;
+  width: 25vw;
+  border: solid black;
+  border-radius: 25px;
+  background: #C98115;
+}
+
+.password-container{
+  position: relative;
+  left: 5vh;
+  /*top: 5px;*/
+  width: 20vw;
+  /*border: solid black;*/
+}
+
+#submit-btn{
+  position: relative;
+  left: 1%;
+  top: 10vh;
+  height: 5vh;
+  border-radius: 25px;
+  font-size: 20px;
+  background-color: white;
+}
+
+
+
