@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
 const backEndUrl = 'http://localhost:9092';
+const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class TeamsService {
 
   getTeams(): any {
     return this.http
-      .get(`${backEndUrl}/api/teams`);
+      .get(`${herokuUrl}/api/teams`);
   }
 
 
