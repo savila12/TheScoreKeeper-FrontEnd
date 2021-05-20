@@ -9,7 +9,7 @@
     <input [(ngModel)]="address" name="address" type="text" placeholder="Home Address" />
     <input [(ngModel)]="phoneNumber" name="phoneNumber" type="text" placeholder="Phone Number" />
     <div class="input-field col s12">
-      <select (change)="selectRoleType($event)" class="browser-default">
+      <select (change)="selectRoleType($event)">
         <option value="" disabled selected>Choose member's role</option>
         <option value="player">Player</option>
         <option value="staff">Staff</option>

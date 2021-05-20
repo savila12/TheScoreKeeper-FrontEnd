@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
-
-declare const M;
+declare var $: any;
 
 @Component({
   selector: 'app-create-member',
@@ -49,11 +48,8 @@ export class CreateMemberComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // tslint:disable-next-line:only-arrow-functions typedef
-    document.addEventListener('DOMContentLoaded', function() {
-      // tslint:disable-next-line:prefer-const
-      const elems = document.querySelectorAll('select');
-      const instances = M.FormSelect.init(elems, this.options);
+    $(document).ready(function(){
+      $('select').formSelect();
     });
   }
 
