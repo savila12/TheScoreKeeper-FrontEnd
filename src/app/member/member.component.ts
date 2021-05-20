@@ -47,11 +47,12 @@ export class MemberComponent implements OnInit {
     console.log(this.indexOfMember);
     // console.log(this.members);
 
-    this.userService.deleteMember(this.indexOfMember).subscribe( x => {
+    this.userService.deleteMember(this.indexOfMember).subscribe( () => {
       this.members.splice(this.indexOfMember, 1);
     }, err => console.log(err));
     // this.router.navigate(['/coach']);
-    this.reloadComponent();
+    // this.reloadComponent();
+    this.getAllMembers();
   }
 
   reloadComponent(): any {
@@ -62,7 +63,9 @@ export class MemberComponent implements OnInit {
   }
 
 
-
+  ngOnChange(): void{
+    this.getAllMembers();
+  }
   ngOnInit(): void {
     this.getAllMembers();
   }

@@ -92,7 +92,6 @@ export class UserService {
         Authorization: `Bearer ${token}`
       }),
     };
-    this.router.navigate(['/coach']);
     return this.http
       .delete(`${backEndUrl}/api/teams/members/${id}`, requestOptions);
   }

@@ -30,17 +30,17 @@ export class CoachComponent implements OnInit {
     });
   }
 
-  getAllMembers(): void {
-    this.userService.getAllMembers().subscribe(response => {
-      this.members = response;
-      this.route.paramMap
-        .subscribe(params => {
-          this.member = this.members.find(member => {
-            return member.id === parseInt(params.get('id'), 10);
-          });
-      });
-    });
-  }
+  // getAllMembers(): void {
+  //   this.userService.getAllMembers().subscribe(response => {
+  //     this.members = response;
+  //     this.route.paramMap
+  //       .subscribe(params => {
+  //         this.member = this.members.find(member => {
+  //           return member.id === parseInt(params.get('id'), 10);
+  //         });
+  //     });
+  //   });
+  // }
 
   showPlayer(): void{
     this.userService.getAllMembers().subscribe(response => {

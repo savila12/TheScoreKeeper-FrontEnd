@@ -1,41 +1,25 @@
 
-.main-container{
+.div0{
   display: flex;
   flex-direction: row;
   width: 100vw;
   height: 100vh;
 }
 
-.left-container {
-  background-color: yellow;
-<<<<<<< HEAD
-  width:50vw;
-  height:90vh;
-}
-
-.right-container {
-  background-color: blueviolet;
-  width: 50vw;
-  height:90vh;
-}
-
-.memberList{
-  font-size: 18px;
-}
-
-.btn-floating{
-=======
-  width:100%;
-  height:500px;
+.div1{
   display: flex;
-
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  /*position: relative;*/
+  overflow-x: hidden;
 }
 
 .div2 {
   background-color: tan;
   width:100%;
   height:500px;
-  padding: 10px;
+  /*padding: 10px;*/
 
 }
 
@@ -43,26 +27,14 @@
   background-color: orange;
   width:50%;
   height:500px;
-  padding:10px;
-
-
+  /*padding:10px;*/
 }
 
 .buttons-list{
   background-color: plum;
   width:50%;
   height:500px;
-  display:flex;
-  flex-direction: column;
-
+  /*display:flex;*/
+  /*flex-direction: column;*/
 }
 
-.left-container {
-
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow-x: hidden;
->>>>>>> be809851e62fa168c0c76b58b92303737e303e7f
-
-}
