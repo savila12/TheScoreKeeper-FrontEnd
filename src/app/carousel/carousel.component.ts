@@ -20,9 +20,6 @@ export class CarouselComponent implements OnInit {
           indicators: true,
         });
 
-      $('.carousel').carousel({
-        padding: 0
-      });
 
       autoplay();
 
