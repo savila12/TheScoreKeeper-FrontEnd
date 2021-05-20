@@ -21,32 +21,33 @@ input{
   width: 15vw;
 }
 
-.outer-email-container{
-  position: relative;
-  left: 15%;
-  width: 25vw;
-  border: 1px solid black;
-  border-radius: 25px;
-  background: #C98115;
+/*.outer-email-container{*/
+/*  position: relative;*/
+/*  left: 15%;*/
+/*  width: 25vw;*/
+/*  border: 1px solid black;*/
+/*  border-radius: 25px;*/
+/*  background: #C98115;*/
 
-}
+/*}*/
 
 .email-container{
   position: relative;
   left: 5%;
   width: 20vw;
   text-align: center;
+  text-decoration: none;
 }
 
-.outer-password-container{
-  position: relative;
-  top: 20px;
-  left: 15%;
-  width: 25vw;
-  border: 1px solid black;
-  border-radius: 25px;
-  background: #C98115;
-}
+/*.outer-password-container{*/
+/*  position: relative;*/
+/*  top: 20px;*/
+/*  left: 15%;*/
+/*  width: 25vw;*/
+/*  border: 1px solid black;*/
+/*  border-radius: 25px;*/
+/*  background: #C98115;*/
+/*}*/
 
 .password-container{
   position: relative;
@@ -64,5 +65,26 @@ input{
   background-color: white;
 }
 
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+  background-color: #C98115;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 20px;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: border .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
+  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}
 
 
