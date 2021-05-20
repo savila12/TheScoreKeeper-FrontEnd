@@ -1,9 +1,10 @@
 .container {
-
+  width: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .nav-wrapper {
@@ -28,3 +29,5 @@
   color: #FFFFFF;
   opacity: 1;
 }
+
+

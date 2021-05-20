@@ -8,8 +8,13 @@ import { CoachComponent } from './coach/coach.component';
 import { CreateMemberComponent } from './create-member/create-member.component';
 import { TeamCreationComponent } from './team-creation/team-creation.component';
 import {MemberComponent} from './member/member.component';
+import {CarouselComponent} from './carousel/carousel.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: CarouselComponent
+  },
   {
     path: 'signup',
     component: SignupComponent
