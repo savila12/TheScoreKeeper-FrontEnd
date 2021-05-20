@@ -1,13 +1,12 @@
-<form>
-  <h2>Register a Coach</h2>
-  <input [(ngModel)]="userName" type="text" name="userName" placeholder="User Name"/>
-  <input [(ngModel)]="firstName" type="text" name="firstName" placeholder="First Name"/>
-  <input [(ngModel)]="lastName" type="text" name="lastName" placeholder="Last Name"/>
-  <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>
-  <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
-<<<<<<< HEAD
-  <input (click)="registerUser()"  type="submit" value="Register" routerLink="/login"/>
-=======
-  <input (click)="registerUser()"  type="submit" value="Register Coach"/>
->>>>>>> be809851e62fa168c0c76b58b92303737e303e7f
-</form>
+<div class="signup-container">
+  <form>
+    <h2>Register Coach</h2>
+    <input class="inputs" id="username" [(ngModel)]="userName" type="text" name="userName" placeholder="User Name"/>
+    <input [(ngModel)]="firstName" type="text" name="firstName" placeholder="First Name"/>
+    <input [(ngModel)]="lastName" type="text" name="lastName" placeholder="Last Name"/>
+    <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>
+    <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
+    <input (click)="registerUser()"  type="submit" value="Register" routerLink="/login"/>
+  </form>
+</div>
+
