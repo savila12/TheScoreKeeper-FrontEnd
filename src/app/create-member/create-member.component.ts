@@ -24,7 +24,7 @@ export class CreateMemberComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   createMember(): void {
-    console.log(this.members, "I am working");
+    console.log(this.members, 'I am working');
     const newMember = {
       firstName: this.firstName,
       lastName: this.lastName,
