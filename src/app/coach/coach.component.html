@@ -27,8 +27,8 @@
 
     <div class="members-list">
       <div *ngFor="let member of members">
-        <div >
-          <p><a routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
+        <div class="collection">
+          <p><a class="collection-item" routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
         </div>
       </div>
     </div>
