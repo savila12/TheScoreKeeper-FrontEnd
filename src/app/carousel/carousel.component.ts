@@ -25,7 +25,7 @@ export class CarouselComponent implements OnInit {
 
       function autoplay(): any {
         $('.carousel').carousel('next');
-        setTimeout(autoplay, 5000);
+        setTimeout(autoplay, 6000);
       }
 
 
