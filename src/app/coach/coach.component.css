@@ -36,6 +36,14 @@
   /*background-color: #C98115;*/
   width:50%;
   height:500px;
+  position: relative;
+  top: 10%;
   /*display:flex;*/
   /*flex-direction: column;*/
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }
