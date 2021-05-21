@@ -24,17 +24,16 @@
 }
 
 .members-list {
-  background-color: orange;
+  background-color: darkgrey;
   width:50%;
   height:500px;
   /*padding:10px;*/
 }
 
 .buttons-list{
-  background-color: plum;
+  background-color: #C98115;
   width:50%;
   height:500px;
   /*display:flex;*/
   /*flex-direction: column;*/
 }
-

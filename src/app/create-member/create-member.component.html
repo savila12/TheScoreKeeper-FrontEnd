@@ -2,7 +2,7 @@
 
 <div>
 
-  <form id="new-member-form"  (submit)="createMember()">
+  <form id="new-member-form">
     <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First Name" />
     <input [(ngModel)]="lastName" name="LastName" type="text" placeholder="Last Name" />
     <input [(ngModel)]="emailAddress" name="emailAddress" type="text" placeholder="Email" />
@@ -20,7 +20,7 @@
         <input [(ngModel)]="battingOrder" name="battingOrder" type="text" placeholder="Batting Order" />
       </div>
     </div>
-    <input type="submit" routerLink="/coach"/>
+    <input (submit)="createMember()" type="submit" />
   </form>
 
 
