@@ -1,28 +1,8 @@
 .container {
-  width: 100vw;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
 }
-
-nav {
-  background-color: #157125;
-}
-
-@media only screen and (max-width: 600px) {
-  nav {
-    height: 120px;
-  }
-
-}
-
-.brand-logo {
-  font: normal normal normal 41px/54px Segoe UI;
-  letter-spacing: 0px;
-  color: #FFFFFF;
-  opacity: 1;
-}
-
-

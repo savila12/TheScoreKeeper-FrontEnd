@@ -17,6 +17,7 @@ import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './member/member.component';
 import { ButtonComponent } from './button/button.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     MembersComponent,
     MemberComponent,
     ButtonComponent,
-    CarouselComponent
+    CarouselComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
