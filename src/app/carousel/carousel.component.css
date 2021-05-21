@@ -67,5 +67,9 @@ h2{
 
 }
 
-
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
