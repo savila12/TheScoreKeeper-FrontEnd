@@ -1,12 +1,12 @@
 
-.div0{
+.main-container{
   display: flex;
   flex-direction: row;
   width: 100vw;
   height: 100vh;
 }
 
-.div1{
+.left-container{
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -15,8 +15,8 @@
   overflow-x: hidden;
 }
 
-.div2 {
-  background-color: tan;
+.right-container {
+  /*background-color: tan;*/
   width:100%;
   height:500px;
   /*padding: 10px;*/
