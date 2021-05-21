@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 const backEndUrl = 'http://localhost:9092';
-const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com/';
+const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
