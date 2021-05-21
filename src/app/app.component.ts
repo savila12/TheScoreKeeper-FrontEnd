@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user/user.service';
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,11 @@ export class AppComponent {
       this.currentUser = currentUser;
       console.log(currentUser);
     });
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+
   }
 
 

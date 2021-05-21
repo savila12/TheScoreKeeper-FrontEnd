@@ -1,22 +1,27 @@
+
 <nav>
   <div class="nav-wrapper">
-    <a class="brand-logo" routerLink="/">The Score Keeper</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <a href="/" class="brand-logo center">The Score Keeper</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
       <li><a routerLink="/teams">Teams</a></li>
-
-      <span *ngIf="!this.currentUser">
-        <li><a routerLink="/signup">Sign Up</a></li>
-        <li><a routerLink="/login">Log In</a></li>
-      </span>
-      <span *ngIf="this.currentUser">
-        <li><a routerLink="/coach"> Coach </a></li>
-        <li><a routerLink="/logout">Log Out</a></li>
-        <li>Hello, Coach {{this.currentUser.firstName}}</li>
-
-      </span>
+      <li *ngIf="!this.currentUser"><a routerLink="/signup"> Sign Up </a></li>
+      <li *ngIf="!this.currentUser"><a routerLink="/login"> Log In </a></li>
+      <li *ngIf="this.currentUser"><a routerLink="/coach"> Coach </a></li>
+      <li *ngIf="this.currentUser"><a routerLink="/logout"> Log Out </a></li>
+      <li *ngIf="this.currentUser"> Hello, Coach {{this.currentUser.email}} </li>
     </ul>
   </div>
 </nav>
+
+<ul class="sidenav green" id="mobile-demo">
+  <li *ngIf="!this.currentUser"><a routerLink="/login"> Log In </a></li>
+  <li *ngIf="!this.currentUser"><a routerLink="/signup"> Sign Up </a></li>
+  <li><a routerLink="/teams">Teams</a></li>
+  <li *ngIf="this.currentUser"><a routerLink="/coach"> Coach </a></li>
+  <li *ngIf="this.currentUser"><a routerLink="/logout"> Log Out </a></li>
+</ul>
+
 
 <div class="container">
   <router-outlet></router-outlet>
