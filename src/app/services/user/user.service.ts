@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 const backEndUrl = 'http://localhost:9092';
+const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserService {
   registerUser(newUser): any {
     console.log(newUser);
     return this.http
-      .post(`${backEndUrl}/auth/users/register`, newUser);
+      .post(`${herokuUrl}/auth/users/register`, newUser);
   }
 
   registerTeam(newTeam): any{
@@ -32,14 +33,14 @@ export class UserService {
       }),
     };
     return this.http
-      .post(`${backEndUrl}/api/teams`, newTeam, requestOptions);
+      .post(`${herokuUrl}/api/teams`, newTeam, requestOptions);
   }
 
 
   loginUser(user): void {
     console.log(user);
     this.http
-      .post(`${backEndUrl}/auth/users/login`, user)
+      .post(`${herokuUrl}/auth/users/login`, user)
       .subscribe(response => {
         const token = response['jwt'];
         localStorage.setItem('currentUser', `${user.email}`);
@@ -68,7 +69,7 @@ export class UserService {
       }),
     };
     return this.http
-      .post(`${backEndUrl}/api/teams/members`, newMember, requestOptions);
+      .post(`${herokuUrl}/api/teams/members`, newMember, requestOptions);
   }
 
   getAllMembers(): any {
@@ -81,7 +82,7 @@ export class UserService {
       }),
     };
     return this.http
-      .get(`${backEndUrl}/api/teams/members/`, requestOptions);
+      .get(`${herokuUrl}/api/teams/members/`, requestOptions);
   }
 
 
@@ -93,6 +94,6 @@ export class UserService {
       }),
     };
     return this.http
-      .delete(`${backEndUrl}/api/teams/members/${id}`, requestOptions);
+      .delete(`${herokuUrl}/api/teams/members/${id}`, requestOptions);
   }
 }
