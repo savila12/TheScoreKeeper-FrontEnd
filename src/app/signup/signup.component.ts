@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -9,26 +10,36 @@ import { UserService } from '../services/user/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  public userName: string;
-  public firstName: string;
-  public lastName: string;
-  public emailAddress: string;
-  public password: string;
+  // public userName: string;
+  // public firstName: string;
+  // public lastName: string;
+  // public emailAddress: string;
+  // public password: string;
+   form: FormGroup;
 
-  registerUser(): void {
-    const newUser = {
-      userName: this.userName,
-      emailAddress: this.emailAddress,
-      password: this.password,
-      firstName: this.firstName,
-      lastName: this.lastName};
-    this.userService.registerUser(newUser)
-      .subscribe(response => console.log(response), err => console.log(err));
+  // registerUser(): void {
+  //   const newUser = {
+  //     userName: this.userName,
+  //     emailAddress: this.emailAddress,
+  //     password: this.password,
+  //     firstName: this.firstName,
+  //     lastName: this.lastName};
+  //   this.userService.registerUser(newUser)
+  //     .subscribe(response => console.log(response), err => console.log(err));
+  // }
+
+
+
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      firstName: [''],
+      lastName: [''],
+      userName: [''],
+      emailAddress: [''],
+      password: ['']
+    });
   }
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

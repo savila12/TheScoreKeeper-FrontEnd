@@ -8,6 +8,7 @@ import { UserService } from './services/user/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'TheScoreKeeper';
 
   constructor() { }
 

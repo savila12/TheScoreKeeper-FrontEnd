@@ -1,44 +1,29 @@
 
-<div id="outline" class="row z-depth-3">
-
+<div [formGroup]="form" id="outline" class="row z-depth-3">
   <h2>SIGN-UP COACH</h2>
+  <mat-form-field  appearance="outline">
+    <mat-label>FirstName</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
 
-  <form class="col s12">
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" >
+  </mat-form-field>
 
-    <div class="row">
-      <div class="input-field col s12">
-        <input  [(ngModel)]="userName" name="userName" id="username_field" type="text" class="center-align" placeholder="USERNAME">
-      </div>
-    </div>
+  <mat-form-field appearance="outline">
+    <mat-label>User Name</mat-label>
+    <input matInput formControlName="userName" >
+  </mat-form-field>
 
-    <div class="row">
-      <div class="input-field col s12">
-        <input  [(ngModel)]="firstName" name="firstName" id="fname_field" type="text" class="center-align" placeholder="FIRST NAME">
-      </div>
-    </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Email Address</mat-label>
+    <input matInput formControlName="emailAddress" >
+  </mat-form-field>
 
-    <div class="row">
-      <div class="input-field col s12">
-        <input  [(ngModel)]="lastName" name="lastName" id="lname_field" type="text" class="center-align" placeholder="LAST NAME">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <input  [(ngModel)]="emailAddress" name="emailAddress" id="email_field" type="email" class="validate center-align" placeholder="EMAIL ADDRESS">
-        <span class="helper-text" data-error="Please insert a valid email address"></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <input [(ngModel)]="password" name="password" id="password_field" type="password" class="validate center-align" placeholder="PASSWORD">
-      </div>
-    </div>
-
-    <input routerLink="/login" class="waves-effect waves-light btn grey " id="submit-btn" (click)="registerUser()" type="submit" value="REGISTER" />
-
-  </form>
-
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" >
+  </mat-form-field>
 </div>
 

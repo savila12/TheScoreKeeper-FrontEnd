@@ -1,51 +1,14 @@
-
-h2{
-  padding-top: 15px;
-  color: whitesmoke;
-}
-
-input:not([type]),
-input[type=text]:not(.browser-default),
-input[type=password]:not(.browser-default),
-input[type=email]:not(.browser-default),
-input[type=url]:not(.browser-default),
-input[type=time]:not(.browser-default),
-input[type=date]:not(.browser-default),
-input[type=datetime]:not(.browser-default),
-input[type=datetime-local]:not(.browser-default),
-input[type=tel]:not(.browser-default),
-input[type=number]:not(.browser-default),
-input[type=search]:not(.browser-default),
-textarea.materialize-textarea{
-  background-color: #C98115;
-  border: none;
-  border-bottom: none;
-  border-radius: 10px;
-  outline: none;
-  height: 3rem;
-  width: 100%;
-  font-size: 16px;
-  margin: 0 0 8px 0;
-  padding: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  -webkit-transition: border .3s, -webkit-box-shadow .3s;
-  transition: border .3s, -webkit-box-shadow .3s;
-  transition: box-shadow .3s, border .3s;
-  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-}
-
-
 #outline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #157125;
-  margin-top: 20%;
-  padding: 0px 50px 30px 50px;
-  padding-bottom: 20%;
+  margin-top: 15px;
+  width: 35vw;
 }
 
-div {
-  padding: 0;
-  margin: 0 0 10px 0;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  /*width: 20vw;*/
+  background-color: #C98115;
+  border-radius: 5px;
 }
