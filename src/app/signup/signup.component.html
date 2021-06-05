@@ -1,13 +1,54 @@
 
-<div class="signup-container">
-  <form>
-    <h2>Register Coach</h2>
-    <input class="inputs" id="username" [(ngModel)]="userName" type="text" name="userName" placeholder="User Name"/>
-    <input [(ngModel)]="firstName" type="text" name="firstName" placeholder="First Name"/>
-    <input [(ngModel)]="lastName" type="text" name="lastName" placeholder="Last Name"/>
-    <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>
-    <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
-    <input (click)="registerUser()"  type="submit" value="Register" routerLink="/login"/>
-  </form>
+<div [formGroup]="form" id="outline" class="row z-depth-3">
+  <h2>SIGN-UP COACH</h2>
+  <mat-form-field  appearance="outline">
+    <mat-label>FirstName</mat-label>
+    <input matInput formControlName="firstName">
+    <mat-error *ngIf="form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched)">
+      <span *ngIf="form.get('firstName').errors?.required">
+        First Name Is Required
+      </span>
+    </mat-error>
+    <mat-error *ngIf="form.get('firstName').errors?.minlength">
+      Must contain at least 3 characters
+    </mat-error>
+    <mat-error *ngIf="form.get('firstName').errors?.maxlength">
+      Exceeded character limit (15 max)
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" >
+    <mat-error *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)">
+      <span *ngIf="form.get('lastName').errors?.required">
+        Last Name Is Required
+      </span>
+    </mat-error>
+    <mat-error *ngIf="form.get('lastName').errors?.minlength">
+      Must contain at least 3 characters
+    </mat-error>
+    <mat-error *ngIf="form.get('lastName').errors?.maxlength">
+      Exceeded character limit (15 max)
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>User Name</mat-label>
+    <input matInput formControlName="userName" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email Address</mat-label>
+    <input matInput formControlName="emailAddress" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" >
+  </mat-form-field>
+
+  <button mat-raised-button [disabled]="!form.valid">Submit</button>
+
 </div>
 

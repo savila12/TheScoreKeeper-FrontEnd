@@ -67,5 +67,20 @@ h2{
 
 }
 
+@font-face {
+  font-family: sportChalk;
+  src: url("../../assets/candy-inc.trial.ttf");
+}
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 0 0 25%;
+}
 
+#welcome{
+  font-family: sportChalk;
+  font-size: 90px;
+}
 

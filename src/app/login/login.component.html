@@ -1,15 +1,28 @@
-<div class="login-container">
-    <h2>Login Coach</h2>
-    <div class="outer-email-container">
-      <div class="email-container center-align">
-        <input [(ngModel)]="email" type="text" name="email" placeholder="Email"/>
-      </div>
-    </div>
-    <div class="outer-password-container">
-      <div class="password-container">
-        <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
-      </div>
-    </div>
-  <input id="submit-btn" (click)="loginUser()" type="submit" value="Log In"/>
-</div>
+<div id="outline" class="row z-depth-3">
 
+  <h2>LOGIN COACH</h2>
+
+  <form class="col s12">
+
+    <div class="row">
+
+      <div class="input-field col s12">
+        <input  [(ngModel)]="email" name="email" id="email_field" type="email" class="validate center-align" placeholder="EMAIL ADDRESS">
+        <span class="helper-text" data-error="Please insert a valid email address"></span>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="input-field col s12">
+        <input [(ngModel)]="password" name="password" id="password_field" type="password" class="validate center-align" placeholder="PASSWORD">
+      </div>
+
+    </div>
+
+    <input class="waves-effect waves-light btn grey " id="submit-btn" (click)="loginUser()" type="submit" value="SUMBIT"/>
+
+  </form>
+
+</div>

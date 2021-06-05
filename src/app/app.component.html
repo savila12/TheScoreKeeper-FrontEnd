@@ -1,23 +1,4 @@
-<nav>
-  <div class="nav-wrapper">
-    <a class="brand-logo" routerLink="/">The Score Keeper</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="/teams">Teams</a></li>
-
-      <span *ngIf="!this.currentUser">
-        <li><a routerLink="/signup">Sign Up</a></li>
-        <li><a routerLink="/login">Log In</a></li>
-      </span>
-      <span *ngIf="this.currentUser">
-        <li><a routerLink="/coach"> Coach </a></li>
-        <li><a routerLink="/logout">Log Out</a></li>
-        <li>Hello, Coach {{this.currentUser.firstName}}</li>
-
-      </span>
-    </ul>
-  </div>
-</nav>
-
+<app-navbar></app-navbar>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

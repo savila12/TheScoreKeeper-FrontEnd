@@ -1,25 +1,41 @@
-<div class="div0">
+<div class="main-container">
 
   <div class="div1">
-    <div class="buttons-list">
-      <button routerLink="/createMember"> Add Team Member </button>
-      <button routerLink="/createTeam"> Create A Team </button>
-      <app-button (btnEmit)="showPlayer()" text="Player"></app-button>
-      <app-button (btnEmit)="showStaff()" text="Staff"></app-button>
-      <app-button (btnEmit)="showAll()" text="All Members"></app-button>
+    <div class="buttons-list col s12">
+
+      <div class="row">
+        <button class="waves-effect waves-light btn grey col s12" routerLink="/createMember"> Create Member </button>
+      </div>
+
+      <div class="row">
+        <button class="waves-effect waves-light btn grey col s12" routerLink="/createTeam"> Create Team </button>
+      </div>
+
+      <div class="row">
+        <app-button (btnEmit)="showPlayer()" text="Player"></app-button>
+      </div>
+
+      <div class="row">
+        <app-button (btnEmit)="showStaff()" text="Staff"></app-button>
+      </div>
+
+      <div class="row">
+        <app-button (btnEmit)="showAll()" text="All Members"></app-button>
+      </div>
+
     </div>
 
     <div class="members-list">
-      <a class="btn-floating btn-large waves-effect waves-light red" routerLink="/createMember"><i class="material-icons">+</i></a>
       <div *ngFor="let member of members">
-        <div >
-          <p><a routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
+        <div class="collection">
+          <p><a class="collection-item" routerLink="{{member.id}}">{{member.firstName}} {{member.lastName}}</a></p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="div2">
+  <div class="right-container">
     <router-outlet></router-outlet>
   </div>
+
 </div>

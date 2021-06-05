@@ -1,18 +1,30 @@
-<section>
-  <!--  <h2>Get All Categories for {{this.emailAddress}}</h2>-->
-  <!--  <button (click)="getTeams()">Get All Teams</button>-->
-</section>
-
 <div *ngIf="teams">
-  <h4>All Teams</h4>
-  <ul>
-    <li *ngFor="let team of teams">
-      {{team.teamName}} -- {{team.city}} -- {{team.parkName}}
-<!--      <button (click)="deleteCategory(category)">delete</button>-->
-<!--      <form (submit)="createRecipe(category)">-->
-<!--        <input [(ngModel)]="recipeName" name="recipeName" type="text" placeholder="new recipe" />-->
-<!--        <input type="submit"/>-->
-<!--      </form>-->
-    </li>
-  </ul>
+
+<h4 class="green">All Teams</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Park</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let team of teams">
+      <td>{{team.teamName}}</td>
+      <td>{{team.city}}</td>
+      <td>{{team.parkName}}</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
 </div>
+
+<h4 *ngIf="!teams">
+  Currently no teams to display.
+</h4>
