@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
-import {FormBuilder, FormGroup, Validators, FormsModule, NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormsModule, NgForm, AbstractControl} from '@angular/forms';
+import {ValidateUserName} from '../asyn-userName.validator';
+import {ValidateEmail} from '../asyn-email.validator';
 
 @Component({
   selector: 'app-signup',
@@ -29,11 +31,18 @@ export class SignupComponent implements OnInit {
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      lastName: ['', Validators.required],
-      userName: [''],
-      emailAddress: [''],
-      password: ['']
+      firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('[A-Za-z]*')]],
+      lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('[A-Za-z]*')]],
+      userName: [
+        '',
+        [Validators.required, Validators.minLength(6), Validators.maxLength(64)],
+        ValidateUserName.createValidator(this.userService)],
+      emailAddress: [
+        '',
+        [Validators.required,
+        Validators.email],
+        ValidateEmail.createValidator(this.userService)],
+      password: ['', Validators.required]
     });
   }
 
