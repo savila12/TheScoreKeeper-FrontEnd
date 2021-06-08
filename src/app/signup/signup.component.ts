@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
-import {FormBuilder, FormGroup, Validators, FormsModule, NgForm, AbstractControl, AsyncValidatorFn, ValidationErrors} from '@angular/forms';
-import {ValidateUserName} from '../asyn-userName.validator';
-import {ValidateEmail} from '../asyn-email.validator';
-import {Observable, of} from 'rxjs';
-import {delay, map, switchMap} from 'rxjs/operators';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import {AsyncService} from '../services/asyncValidators/async.service';
+
+
 
 @Component({
   selector: 'app-signup',
@@ -14,19 +17,11 @@ import {delay, map, switchMap} from 'rxjs/operators';
 export class SignupComponent implements OnInit {
 
   form: FormGroup;
-  static userService: UserService;
 
-  static userNameExists(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      return of(control.value).pipe(
-        delay(500),
-        switchMap((userName) => this.userService.checkUserNameNotTaken(userName).pipe(
-          map(userNameExists => userNameExists ? {userNameExists: true} : null)
-        ))
-      );
-    };
-  }
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private asyncService: AsyncService) {}
 
   // registerUser(form: NgForm): void {
   //   const newUser = {
@@ -57,12 +52,12 @@ export class SignupComponent implements OnInit {
       userName: [
         '',
         [Validators.required, Validators.minLength(6), Validators.maxLength(64)],
-      ],
+        this.asyncService.userNameValidator()],
       emailAddress: [
         '',
         [Validators.required,
           Validators.email],
-        ValidateEmail.createValidator(this.userService)],
+        ],
       password: ['', Validators.required]
     });
   }

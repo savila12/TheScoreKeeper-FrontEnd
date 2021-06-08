@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import {response} from 'express';
+import {ValidationErrors} from '@angular/forms';
 
 const backEndUrl = 'http://localhost:9092';
 const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com';
@@ -96,14 +97,5 @@ export class UserService {
     };
     return this.http
       .delete(`${herokuUrl}/api/teams/members/${id}`, requestOptions);
-  }
-
-  // tslint:disable-next-line:typedef
-  checkUserNameNotTaken(username: string){
-    const url = `${herokuUrl}/auth/users`;
-    const user: any = {};
-    user.username = username;
-    const response$: Observable<boolean> = this.http.post<boolean>(url, user);
-    return response$;
   }
 }
