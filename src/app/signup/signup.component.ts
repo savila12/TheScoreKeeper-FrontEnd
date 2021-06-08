@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
-import {FormBuilder, FormGroup, Validators, FormsModule, NgForm, AbstractControl} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormsModule, NgForm, AbstractControl, AsyncValidatorFn, ValidationErrors} from '@angular/forms';
 import {ValidateUserName} from '../asyn-userName.validator';
 import {ValidateEmail} from '../asyn-email.validator';
+import {Observable, of} from 'rxjs';
+import {delay, map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -11,12 +13,20 @@ import {ValidateEmail} from '../asyn-email.validator';
 })
 export class SignupComponent implements OnInit {
 
-  // public userName: string;
-  // public firstName: string;
-  // public lastName: string;
-  // public emailAddress: string;
-  // public password: string;
-   form: FormGroup;
+  form: FormGroup;
+  static userService: UserService;
+
+  static userNameExists(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return of(control.value).pipe(
+        delay(500),
+        switchMap((userName) => this.userService.checkUserNameNotTaken(userName).pipe(
+          map(userNameExists => userNameExists ? {userNameExists: true} : null)
+        ))
+      );
+    };
+  }
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
 
   // registerUser(form: NgForm): void {
   //   const newUser = {
@@ -29,28 +39,31 @@ export class SignupComponent implements OnInit {
   //     .subscribe(response => console.log(response), err => console.log(err));
   // }
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  // public userName: string;
+  // public firstName: string;
+  // public lastName: string;
+  // public emailAddress: string;
+  // public password: string;
+
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  // tslint:disable-next-line:typedef
+  createForm() {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('[A-Za-z]*')]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('[A-Za-z]*')]],
       userName: [
         '',
         [Validators.required, Validators.minLength(6), Validators.maxLength(64)],
-        ValidateUserName.createValidator(this.userService)],
+      ],
       emailAddress: [
         '',
         [Validators.required,
-        Validators.email],
+          Validators.email],
         ValidateEmail.createValidator(this.userService)],
       password: ['', Validators.required]
     });
   }
-
-  // tslint:disable-next-line:typedef
-  // get firstName(){
-  //   return this.form.get('firstName');
-  // }
-
-  ngOnInit(): void {}
-
 }

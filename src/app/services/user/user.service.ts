@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
+import {response} from 'express';
 
 const backEndUrl = 'http://localhost:9092';
 const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com';
@@ -11,11 +12,11 @@ const herokuUrl = 'https://infinite-atoll-93618.herokuapp.com';
 })
 export class UserService {
 
+  constructor(private http: HttpClient, private router: Router) {}
+
   currentUser: string;
   searchSubject = new Subject();
   member: any;
-
-  constructor(private http: HttpClient, private router: Router) {}
 
   // @ts-ignore
   registerUser(newUser): any {
@@ -95,5 +96,14 @@ export class UserService {
     };
     return this.http
       .delete(`${herokuUrl}/api/teams/members/${id}`, requestOptions);
+  }
+
+  // tslint:disable-next-line:typedef
+  checkUserNameNotTaken(username: string){
+    const url = `${herokuUrl}/auth/users`;
+    const user: any = {};
+    user.username = username;
+    const response$: Observable<boolean> = this.http.post<boolean>(url, user);
+    return response$;
   }
 }
